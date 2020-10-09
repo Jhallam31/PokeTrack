@@ -1,4 +1,5 @@
-﻿using PokeTrack.Models.Pokemon;
+﻿using PokeTrack.Data.Tables;
+using PokeTrack.Models.Pokemon;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -15,6 +16,6 @@ namespace PokeTrack.Models.Move
         public int Accuracy { get; set; }
         public int Power { get; set; }
 
-        public ICollection<PokemonDetail> PokemonWithThisMove { get; set; }
+        public ICollection<PokeTrack.Data.Tables.Pokemon> PokemonWithThisMove { get; set; }
     }
 }

@@ -208,6 +208,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PokemonController.cs" />
+    <Compile Include="Controllers\MoveController.cs" />
+    <Compile Include="Controllers\PokemonTypeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

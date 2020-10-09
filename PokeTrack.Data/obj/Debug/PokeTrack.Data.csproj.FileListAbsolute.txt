@@ -36,3 +36,4 @@ C:\Users\jenna\OneDrive\Documents\Personal Projects\PokeTrackAPI\PokeTrack\PokeT
 C:\Users\jenna\OneDrive\Documents\Personal Projects\PokeTrackAPI\PokeTrack\PokeTrack.Data\obj\Debug\PokeTrack.Data.Migrations.modelsFinished.resources
 C:\Users\jenna\OneDrive\Documents\Personal Projects\PokeTrackAPI\PokeTrack\PokeTrack.Data\obj\Debug\PokeTrack.Data.csproj.GenerateResource.cache
 C:\Users\jenna\OneDrive\Documents\Personal Projects\PokeTrackAPI\PokeTrack\PokeTrack.Data\obj\Debug\PokeTrack.Data.Migrations.controllersandservices.resources
+C:\Users\jenna\OneDrive\Documents\Personal Projects\PokeTrackAPI\PokeTrack\PokeTrack.Data\obj\Debug\PokeTrack.Data.Migrations.draft1finished.resources
