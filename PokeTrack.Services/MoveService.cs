@@ -17,7 +17,7 @@ namespace PokeTrack.Services
             var entity =
                 new Move()
                 {
-                    MoveID = model.MoveID,
+                    
                     MoveName = model.MoveName,
                     Accuracy = model.Accuracy,
                     Power =model.Power
@@ -44,7 +44,6 @@ namespace PokeTrack.Services
                         {
                             MoveID = e.MoveID,
                             MoveName = e.MoveName,
-                            PokemonCount = e.PokemonWithThisMove.Count()
 
                         }
                         );
@@ -63,11 +62,11 @@ namespace PokeTrack.Services
                 return
                 new MoveDetail
                 {
+                    
                     MoveID = entity.MoveID,
                     MoveName = entity.MoveName,
                     Accuracy = entity.Accuracy,
                     Power = entity.Power,
-                    PokemonWithThisMove = entity.PokemonWithThisMove.ToList()
 
                 };
 

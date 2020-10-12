@@ -13,7 +13,7 @@ namespace PokeTrack.Models.Pokemon
     public class PokemonCreate
 
     {
-        public int PokemonID { get; set; }
+        
         
         [Display(Name = "Name")]
         public string PokemonName { get; set; }

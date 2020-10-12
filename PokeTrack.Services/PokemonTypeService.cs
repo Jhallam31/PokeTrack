@@ -17,7 +17,7 @@ namespace PokeTrack.Services
             var entity =
                 new PokemonType()
                 {
-                    PokemonTypeID = model.PokemonTypeID,
+                    
                     TypeName = model.TypeName
                 };
 

@@ -26,8 +26,7 @@ namespace PokeTrack.Data.Tables
         public int PokemonCount { get; set; }
 
         //Collection of instances of Pokemon that contain this move
-        [Display(Name = "Pokemon")]
-        public ICollection<Pokemon> PokemonWithThisMove { get; set; }
+        
 
     }
 }

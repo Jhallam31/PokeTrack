@@ -97,6 +97,14 @@
     <Compile Include="Migrations\202010092029523_draft1finished.Designer.cs">
       <DependentUpon>202010092029523_draft1finished.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010092137146_finishedModelType.cs" />
+    <Compile Include="Migrations\202010092137146_finishedModelType.Designer.cs">
+      <DependentUpon>202010092137146_finishedModelType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010121310126_updatedMoveTable.cs" />
+    <Compile Include="Migrations\202010121310126_updatedMoveTable.Designer.cs">
+      <DependentUpon>202010121310126_updatedMoveTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tables\Move.cs" />
@@ -116,6 +124,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010092029523_draft1finished.resx">
       <DependentUpon>202010092029523_draft1finished.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010092137146_finishedModelType.resx">
+      <DependentUpon>202010092137146_finishedModelType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010121310126_updatedMoveTable.resx">
+      <DependentUpon>202010121310126_updatedMoveTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

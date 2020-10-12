@@ -16,6 +16,6 @@ namespace PokeTrack.Models.Move
         public int Accuracy { get; set; }
         public int Power { get; set; }
 
-        public ICollection<PokeTrack.Data.Tables.Pokemon> PokemonWithThisMove { get; set; }
+        //public ICollection<PokeTrack.Data.Tables.Pokemon> PokemonWithThisMove { get; set; }
     }
 }

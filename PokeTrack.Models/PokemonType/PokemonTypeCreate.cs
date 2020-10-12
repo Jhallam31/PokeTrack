@@ -9,7 +9,7 @@ namespace PokeTrack.Models.Type
 {
     public class PokemonTypeCreate
     {
-        public int PokemonTypeID { get; set; }
+        
         [Display(Name ="Name")]
         public string TypeName { get; set; }
 

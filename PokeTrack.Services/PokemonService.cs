@@ -17,9 +17,14 @@ namespace PokeTrack.Services
             var entity =
                 new Pokemon()
                 {
-                    PokemonTypeID = model.PokemonTypeID,
                     PokemonName = model.PokemonName,
-                    PokemonID = model.PokemonID,
+                    BaseExperience = model.BaseExperience,
+                    PokemonTypeID = model.PokemonTypeID,
+                    MoveOneID = model.MoveOneID,
+                    MoveTwoID = model.MoveTwoID,
+                    MoveThreeID = model.MoveThreeID,
+                    MoveFourID = model.MoveFourID
+                    
                 };
 
             using (var ctx = new ApplicationDbContext())
