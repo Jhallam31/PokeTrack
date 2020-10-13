@@ -12,7 +12,9 @@ namespace PokeTrack.Models.Move
         public string MoveName { get; set; }
         public int Accuracy { get; set; }
         public int Power { get; set; }
-        
-        
+        public string Description { get; set; }
+        public int MoveTypeID { get; set; }
+
+
     }
 }

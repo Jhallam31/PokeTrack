@@ -19,7 +19,12 @@ namespace PokeTrack.Services
                 {
                     PokemonName = model.PokemonName,
                     BaseExperience = model.BaseExperience,
-                    PokemonTypeID = model.PokemonTypeID,
+                    
+                    //Type 2 is nullable
+                    TypeID1 = model.PokemonTypeID1,
+                    TypeID2= model.PokemonTypeID2,
+
+                    //Moves 2-4 are nullable
                     MoveOneID = model.MoveOneID,
                     MoveTwoID = model.MoveTwoID,
                     MoveThreeID = model.MoveThreeID,
@@ -30,8 +35,11 @@ namespace PokeTrack.Services
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.PokemonDb.Add(entity);
+                
+                 
                 return ctx.SaveChanges() == 1;
             }
+            
         }
 
         public IEnumerable<PokemonListItem> GetPokemonList()
@@ -48,7 +56,8 @@ namespace PokeTrack.Services
                         {
                             PokemonID = e.PokemonID,
                             PokemonName = e.PokemonName,
-                            TypeName = e.PokemonType.TypeName
+                            TypeName1 = e.Type1.TypeName,
+                            TypeName2 = e.Type2.TypeName
 
                         }
                         );
@@ -69,7 +78,8 @@ namespace PokeTrack.Services
                 {
                     PokemonName = entity.PokemonName,
                     BaseExperience = entity.BaseExperience,
-                    TypeName = entity.PokemonType.TypeName,
+                    Type1Name = entity.Type1.TypeName,
+                    Type2Name = entity.Type2.TypeName,
                     MoveOneName = entity.MoveOne.MoveName,
                     MoveTwoName = entity.MoveTwo.MoveName,
                     MoveThreeName = entity.MoveThree.MoveName,
@@ -80,20 +90,15 @@ namespace PokeTrack.Services
             }
         }
 
-        public bool UpdatePokemon(PokemonEdit model)
+        public bool UpdatePokemon(PokemonEdit model, int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx.PokemonDb
-                    .Single(e => e.PokemonID == e.PokemonID);
+                    .Single(e => e.PokemonID == id);
                 entity.PokemonName = model.PokemonName;
                 entity.BaseExperience = model.BaseExperience;
-                entity.PokemonType.PokemonTypeID = model.PokemonTypeID;
-                entity.MoveOneID = model.MoveOneID;
-                entity.MoveTwoID = model.MoveTwoID;
-                entity.MoveThreeID = model.MoveThreeID;
-                entity.MoveFourID = model.MoveFourID;
 
                 return ctx.SaveChanges() == 1;
 

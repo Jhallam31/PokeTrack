@@ -49,14 +49,14 @@ namespace PokeTrack.WebAPI.Controllers
         }
 
         [HttpPut]
-        public IHttpActionResult EditPokemon(PokemonEdit pokemon)
+        public IHttpActionResult EditPokemon(PokemonEdit pokemon, int id)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             var service = CreatePokemonService();
 
-            if (!service.UpdatePokemon(pokemon))
+            if (!service.UpdatePokemon(pokemon, id))
                 return InternalServerError();
 
             return Ok();

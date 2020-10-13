@@ -15,7 +15,7 @@ namespace PokeTrack.Services
         public bool CreatePokemonType(PokemonTypeCreate model)
         {
             var entity =
-                new PokemonType()
+                new Data.Tables.Type()
                 {
                     
                     TypeName = model.TypeName
@@ -40,7 +40,7 @@ namespace PokeTrack.Services
                         e =>
                         new PokemonTypeListItem
                         {
-                            PokemonTypeID = e.PokemonTypeID,
+                            PokemonTypeID = e.TypeID,
                             TypeName = e.TypeName,
                             PokemonCount = e.PokemonWithThisType.Count()
 
@@ -57,15 +57,29 @@ namespace PokeTrack.Services
                 var entity =
                     ctx
                     .TypeDb
-                    .Single(e => e.PokemonTypeID == id);
+                    .Single(e => e.TypeID == id);
+                if(entity.PokemonWithThisType != null)
+                {
+
                 return
                 new PokemonTypeDetail
                 {
                     TypeName = entity.TypeName,
-                    PokemonCount = entity.PokemonWithThisType.Count()
+                    PokemonCount = entity.PokemonWithThisType.Count(),
+                    
+                    PokemonWithThisType = entity.PokemonWithThisType.ToList()
 
                 };
-
+                }
+                else
+                {
+                    return
+                        new PokemonTypeDetail
+                        {
+                            TypeName = entity.TypeName,
+                            PokemonCount = null
+                        };
+                }
             }
         }
 
@@ -75,7 +89,7 @@ namespace PokeTrack.Services
             {
                 var entity =
                     ctx.TypeDb
-                    .Single(e => e.PokemonTypeID == e.PokemonTypeID);
+                    .Single(e => e.TypeID == e.TypeID);
                 entity.TypeName = model.TypeName;
                 
 
@@ -91,7 +105,7 @@ namespace PokeTrack.Services
                 var entity =
                     ctx
                         .TypeDb
-                        .Single(e => e.PokemonTypeID == id);
+                        .Single(e => e.TypeID == id);
 
                 ctx.TypeDb.Remove(entity);
 

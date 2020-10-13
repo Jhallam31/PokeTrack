@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PokeTrack.Data.Tables;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -13,7 +14,9 @@ namespace PokeTrack.Models.Type
         public string TypeName { get; set; }
 
         [Display(Name = "Pokemon Count")]
-        public int PokemonCount { get; set; }
+        public int? PokemonCount { get; set; }
+
+        public List<PokeTrack.Data.Tables.Pokemon> PokemonWithThisType { get; set; }
 
 
     }

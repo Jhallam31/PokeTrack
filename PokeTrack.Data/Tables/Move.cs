@@ -11,22 +11,25 @@ namespace PokeTrack.Data.Tables
     public class Move
     {
         [Key]
-        [Display(Name ="ID")]
         public int MoveID { get; set; }
         
         [Required]
-        [Display(Name = "Name")]
         public string MoveName { get; set; }
+        
+        
+        //Describes the function/effects of the move (is nullable)
+        public string Description { get; set; }
 
+        //Accuracy percentage
         public int Accuracy { get; set; }
+
         public int Power { get; set; }
 
-        //Pokemon Count = count of PokemonWithThisMove
-        [Display(Name = "Pokemon Count")]
-        public int PokemonCount { get; set; }
-
-        //Collection of instances of Pokemon that contain this move
+        //type of move
+        public int TypeID { get; set; }
         
+        [ForeignKey("TypeID")]
+        public virtual Type MoveType { get; set; }
 
     }
 }

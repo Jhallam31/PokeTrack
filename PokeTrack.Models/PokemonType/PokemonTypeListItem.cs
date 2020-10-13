@@ -9,13 +9,13 @@ namespace PokeTrack.Models.Type
 {
     public class PokemonTypeListItem
     {
-        [Display(Name = "ID")]
+        [Display(Name = "Type ID")]
         public int PokemonTypeID { get; set; }
         
         [Display(Name = "Name")]
         public string TypeName { get; set; }
-        
+
         [Display(Name = "Pokemon Count")]
-        public int PokemonCount { get; set; }
+        public int? PokemonCount { get; set; }
     }
 }

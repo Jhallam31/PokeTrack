@@ -37,7 +37,7 @@ namespace PokeTrack.Data
         
         public DbSet<Pokemon> PokemonDb { get; set; }
         public DbSet<Move> MoveDb { get; set; }
-        public DbSet<PokemonType> TypeDb { get; set; }
+        public DbSet<Type> TypeDb { get; set; }
        
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -51,12 +51,16 @@ namespace PokeTrack.Data
                 .Add(new IdentityUserRoleConfiguration());
 
             modelBuilder
-                .Entity<PokemonType>()
+                .Entity<Type>()
                 .HasMany(e => e.PokemonWithThisType)
-                .WithRequired(t => t.PokemonType)
+                .WithOptional(t => t.Type1)
+                .WillCascadeOnDelete(false);
+            modelBuilder
+                .Entity<Type>()
+                .HasMany(e => e.PokemonWithThisType)
+                .WithOptional(t => t.Type2)
                 .WillCascadeOnDelete(false);
 
-            
         }
 
     }

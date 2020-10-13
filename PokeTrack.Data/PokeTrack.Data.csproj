@@ -85,51 +85,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202010091742485_modelsFinished.cs" />
-    <Compile Include="Migrations\202010091742485_modelsFinished.Designer.cs">
-      <DependentUpon>202010091742485_modelsFinished.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010091917452_controllersandservices.cs" />
-    <Compile Include="Migrations\202010091917452_controllersandservices.Designer.cs">
-      <DependentUpon>202010091917452_controllersandservices.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010092029523_draft1finished.cs" />
-    <Compile Include="Migrations\202010092029523_draft1finished.Designer.cs">
-      <DependentUpon>202010092029523_draft1finished.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010092137146_finishedModelType.cs" />
-    <Compile Include="Migrations\202010092137146_finishedModelType.Designer.cs">
-      <DependentUpon>202010092137146_finishedModelType.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010121310126_updatedMoveTable.cs" />
-    <Compile Include="Migrations\202010121310126_updatedMoveTable.Designer.cs">
-      <DependentUpon>202010121310126_updatedMoveTable.cs</DependentUpon>
+    <Compile Include="Migrations\202010122025372_firstNewMigrate.cs" />
+    <Compile Include="Migrations\202010122025372_firstNewMigrate.Designer.cs">
+      <DependentUpon>202010122025372_firstNewMigrate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tables\Move.cs" />
     <Compile Include="Tables\Pokemon.cs" />
-    <Compile Include="Tables\PokemonType.cs" />
+    <Compile Include="Tables\Type.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202010091742485_modelsFinished.resx">
-      <DependentUpon>202010091742485_modelsFinished.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010091917452_controllersandservices.resx">
-      <DependentUpon>202010091917452_controllersandservices.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010092029523_draft1finished.resx">
-      <DependentUpon>202010092029523_draft1finished.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010092137146_finishedModelType.resx">
-      <DependentUpon>202010092137146_finishedModelType.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010121310126_updatedMoveTable.resx">
-      <DependentUpon>202010121310126_updatedMoveTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202010122025372_firstNewMigrate.resx">
+      <DependentUpon>202010122025372_firstNewMigrate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

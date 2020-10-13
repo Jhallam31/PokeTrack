@@ -47,14 +47,14 @@ namespace PokeTrack.WebAPI.Controllers
         }
 
         [HttpPut]
-        public IHttpActionResult EditMove(MoveEdit move)
+        public IHttpActionResult EditMove(MoveEdit move, int id)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             var service = CreateMoveService();
 
-            if (!service.UpdateMove(move))
+            if (!service.UpdateMove(move,id))
                 return InternalServerError();
 
             return Ok();

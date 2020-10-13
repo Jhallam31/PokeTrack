@@ -16,10 +16,16 @@ namespace PokeTrack.Models.Pokemon
         [Display(Name ="Name")]
         public string PokemonName { get; set; }
 
-        [Display(Name = "Type")]
-        public string TypeName { get; set; }
-
         
+        [Display(Name = "Type 1")]
+        public string TypeName1 { get; set; }
+        
+        [Display(Name = "Type 2")]
+        public string TypeName2 { get; set; }
+
+
+
+
 
     }
 }

@@ -11,6 +11,7 @@ namespace PokeTrack.Models.Move
         public int MoveID { get; set; }
         public string MoveName { get; set; }
         public int PokemonCount { get; set; }
+        public string TypeName { get; set; }
 
     }
 }

@@ -15,7 +15,11 @@ namespace PokeTrack.Models.Move
         public string MoveName { get; set; }
         public int Accuracy { get; set; }
         public int Power { get; set; }
+        public string Description { get; set; }
 
-        //public ICollection<PokeTrack.Data.Tables.Pokemon> PokemonWithThisMove { get; set; }
+        //Shows the name of the referenced Type
+        public string TypeName { get; set; }
+
+        
     }
 }

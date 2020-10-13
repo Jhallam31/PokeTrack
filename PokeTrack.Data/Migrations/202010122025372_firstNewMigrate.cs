@@ -3,7 +3,7 @@ namespace PokeTrack.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class modelsFinished : DbMigration
+    public partial class firstNewMigrate : DbMigration
     {
         public override void Up()
         {
@@ -13,11 +13,24 @@ namespace PokeTrack.Data.Migrations
                     {
                         MoveID = c.Int(nullable: false, identity: true),
                         MoveName = c.String(nullable: false),
+                        Description = c.String(),
                         Accuracy = c.Int(nullable: false),
                         Power = c.Int(nullable: false),
-                        PokemonCount = c.Int(nullable: false),
+                        TypeID = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.MoveID);
+                .PrimaryKey(t => t.MoveID)
+                .ForeignKey("dbo.Type", t => t.TypeID, cascadeDelete: false)
+                .Index(t => t.TypeID);
+            
+            CreateTable(
+                "dbo.Type",
+                c => new
+                    {
+                        TypeID = c.Int(nullable: false, identity: true),
+                        TypeName = c.String(nullable: false),
+                        PokemonCount = c.Int(),
+                    })
+                .PrimaryKey(t => t.TypeID);
             
             CreateTable(
                 "dbo.Pokemon",
@@ -26,36 +39,26 @@ namespace PokeTrack.Data.Migrations
                         PokemonID = c.Int(nullable: false, identity: true),
                         PokemonName = c.String(nullable: false),
                         BaseExperience = c.Int(nullable: false),
-                        PokemonTypeID = c.Int(nullable: false),
+                        TypeID1 = c.Int(),
+                        TypeID2 = c.Int(),
                         MoveOneID = c.Int(nullable: false),
-                        MoveTwoID = c.Int(nullable: false),
-                        MoveThreeID = c.Int(nullable: false),
-                        MoveFourID = c.Int(nullable: false),
-                        Move_MoveID = c.Int(),
+                        MoveTwoID = c.Int(),
+                        MoveThreeID = c.Int(),
+                        MoveFourID = c.Int(),
                     })
                 .PrimaryKey(t => t.PokemonID)
-                .ForeignKey("dbo.Move", t => t.MoveFourID, cascadeDelete: false)
+                .ForeignKey("dbo.Move", t => t.MoveFourID)
                 .ForeignKey("dbo.Move", t => t.MoveOneID, cascadeDelete: false)
-                .ForeignKey("dbo.Move", t => t.MoveThreeID, cascadeDelete: false)
-                .ForeignKey("dbo.Move", t => t.MoveTwoID, cascadeDelete: false)
-                .ForeignKey("dbo.PokemonType", t => t.PokemonTypeID)
-                .ForeignKey("dbo.Move", t => t.Move_MoveID)
-                .Index(t => t.PokemonTypeID)
+                .ForeignKey("dbo.Move", t => t.MoveThreeID)
+                .ForeignKey("dbo.Move", t => t.MoveTwoID)
+                .ForeignKey("dbo.Type", t => t.TypeID1)
+                .ForeignKey("dbo.Type", t => t.TypeID2)
+                .Index(t => t.TypeID1)
+                .Index(t => t.TypeID2)
                 .Index(t => t.MoveOneID)
                 .Index(t => t.MoveTwoID)
                 .Index(t => t.MoveThreeID)
-                .Index(t => t.MoveFourID)
-                .Index(t => t.Move_MoveID);
-            
-            CreateTable(
-                "dbo.PokemonType",
-                c => new
-                    {
-                        PokemonTypeID = c.Int(nullable: false, identity: true),
-                        TypeName = c.String(nullable: false),
-                        PokemonCount = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.PokemonTypeID);
+                .Index(t => t.MoveFourID);
             
             CreateTable(
                 "dbo.IdentityRole",
@@ -135,8 +138,9 @@ namespace PokeTrack.Data.Migrations
             DropForeignKey("dbo.IdentityUserLogin", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserClaim", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole");
-            DropForeignKey("dbo.Pokemon", "Move_MoveID", "dbo.Move");
-            DropForeignKey("dbo.Pokemon", "PokemonTypeID", "dbo.PokemonType");
+            DropForeignKey("dbo.Move", "TypeID", "dbo.Type");
+            DropForeignKey("dbo.Pokemon", "TypeID2", "dbo.Type");
+            DropForeignKey("dbo.Pokemon", "TypeID1", "dbo.Type");
             DropForeignKey("dbo.Pokemon", "MoveTwoID", "dbo.Move");
             DropForeignKey("dbo.Pokemon", "MoveThreeID", "dbo.Move");
             DropForeignKey("dbo.Pokemon", "MoveOneID", "dbo.Move");
@@ -145,19 +149,20 @@ namespace PokeTrack.Data.Migrations
             DropIndex("dbo.IdentityUserClaim", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "IdentityRole_Id" });
-            DropIndex("dbo.Pokemon", new[] { "Move_MoveID" });
             DropIndex("dbo.Pokemon", new[] { "MoveFourID" });
             DropIndex("dbo.Pokemon", new[] { "MoveThreeID" });
             DropIndex("dbo.Pokemon", new[] { "MoveTwoID" });
             DropIndex("dbo.Pokemon", new[] { "MoveOneID" });
-            DropIndex("dbo.Pokemon", new[] { "PokemonTypeID" });
+            DropIndex("dbo.Pokemon", new[] { "TypeID2" });
+            DropIndex("dbo.Pokemon", new[] { "TypeID1" });
+            DropIndex("dbo.Move", new[] { "TypeID" });
             DropTable("dbo.IdentityUserLogin");
             DropTable("dbo.IdentityUserClaim");
             DropTable("dbo.ApplicationUser");
             DropTable("dbo.IdentityUserRole");
             DropTable("dbo.IdentityRole");
-            DropTable("dbo.PokemonType");
             DropTable("dbo.Pokemon");
+            DropTable("dbo.Type");
             DropTable("dbo.Move");
         }
     }

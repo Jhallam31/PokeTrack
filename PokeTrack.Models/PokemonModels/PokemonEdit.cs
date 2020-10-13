@@ -17,9 +17,15 @@ namespace PokeTrack.Models.Pokemon
         [Display(Name = "Base XP")]
         public int BaseExperience { get; set; }
 
-        [Display(Name ="Type ID")]
-        public int PokemonTypeID { get; set; }
+        
+        [Display(Name ="Type 1 ID")]
+        public int TypeID1 { get; set; }
+        
+        [Display(Name = "Type 2 ID")]
+        public int TypeID2 { get; set; }
 
+        
+        
         [Display(Name = "Move 1")]
         public int MoveOneID { get; set; }
         

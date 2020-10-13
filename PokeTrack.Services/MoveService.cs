@@ -17,10 +17,11 @@ namespace PokeTrack.Services
             var entity =
                 new Move()
                 {
-                    
                     MoveName = model.MoveName,
                     Accuracy = model.Accuracy,
-                    Power =model.Power
+                    Power =model.Power,
+                    Description=model.Description,
+                    TypeID = model.MoveTypeID
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -44,6 +45,7 @@ namespace PokeTrack.Services
                         {
                             MoveID = e.MoveID,
                             MoveName = e.MoveName,
+                            TypeName = e.MoveType.TypeName
 
                         }
                         );
@@ -67,22 +69,26 @@ namespace PokeTrack.Services
                     MoveName = entity.MoveName,
                     Accuracy = entity.Accuracy,
                     Power = entity.Power,
+                    Description = entity.Description,
+                    TypeName =entity.MoveType.TypeName
 
                 };
 
             }
         }
 
-        public bool UpdateMove(MoveEdit model)
+        public bool UpdateMove(MoveEdit model, int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx.MoveDb
-                    .Single(e => e.MoveID == e.MoveID);
+                    .Single(e => e.MoveID == id);
                 entity.MoveName = model.MoveName;
                 entity.Accuracy = model.Accuracy;
                 entity.Power = model.Power;
+                entity.Description = model.Description;
+                
 
                 return ctx.SaveChanges() == 1;
 

@@ -7,13 +7,13 @@ namespace PokeTrack.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class controllersandservices : IMigrationMetadata
+    public sealed partial class firstNewMigrate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(controllersandservices));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(firstNewMigrate));
         
         string IMigrationMetadata.Id
         {
-            get { return "202010091917452_controllersandservices"; }
+            get { return "202010122025372_firstNewMigrate"; }
         }
         
         string IMigrationMetadata.Source

@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace PokeTrack.Data.Tables
 {
-    public class PokemonType
+    public class Type
     {
         [Key]
         [Display(Name = "ID")]
-        public int PokemonTypeID { get; set; }
+        public int TypeID { get; set; }
         
         [Required]
         [Display(Name = "Name")]
         public string TypeName { get; set; }
 
         [Display(Name = "Pokemon Count")]
-        public int PokemonCount { get; set; }
+        public int? PokemonCount { get; set; }
 
         [Display(Name = "Pokemon")]
         public ICollection<Pokemon> PokemonWithThisType { get; set; }
